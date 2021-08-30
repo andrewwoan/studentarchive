@@ -1,0 +1,27 @@
+{% extends "main.html"%}
+
+
+{% block content %}
+
+<div class="background-image9">
+
+</div>
+<div class="profile-section">
+       
+    <div class="paper4">
+        <div class="mini-title">Introduction</div>
+        <div class="main-title22"> Welcome to the Penn State Researcher Compendium</div>
+    {% for home in hometext reversed %}
+    <div class="descript22">
+    {{home.home_text}}   
+    </div> 
+    {% endfor %}
+
+    </div>
+</div>
+
+
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,170 @@
+{% extends "main.html"%}
+
+
+{% block content %}
+
+<div class="background-image4">
+    <div class="hero-titles">
+        <h1 class="hero-title2">
+            {{profile.name}}
+        </h1>
+    </div>
+</div>
+
+<div class="profile-section2">
+
+    <div class="paper2">
+        <div class="back">
+            <a href="{% url 'profiles' %}" class="back-container">
+                <svg width="14" height="14" viewBox="0 0 28 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M25.9916 51.9916C25.462 51.9894 24.9549 51.7772 24.5816 51.4016L0.581586 27.4016C0.209084 27.0269 0 26.52 0 25.9916C0 25.4632 0.209084 24.9563 0.581586 24.5816L24.5816 0.581585C24.9563 0.209083 25.4632 0 25.9916 0C26.52 0 27.0269 0.209083 27.4016 0.581585C27.7741 0.95631 27.9832 1.46321 27.9832 1.99159C27.9832 2.51996 27.7741 3.02686 27.4016 3.40159L4.82159 25.9916L27.4016 48.5816C27.6796 48.8613 27.8687 49.2169 27.9452 49.6037C28.0217 49.9906 27.9821 50.3914 27.8314 50.7558C27.6807 51.1202 27.4257 51.432 27.0983 51.6519C26.771 51.8717 26.3859 51.9899 25.9916 51.9916Z" fill="#BBBBBB"/>
+                    </svg>                    
+                <div class="back-name">Back</div>
+            </a>
+        </div>
+        <div class="everything-else">
+            <div class="left-profile">
+                <div class="formatting2">
+                    <img src="{{ profile.profile_picture.url }}" alt="">
+                </div>
+                <div class="profile-name">{{profile.name}}</div>
+                <div class="profile-occupation">{{profile.area_of_interest}}</div>
+                <div class="profile-email">{{profile.email}}</div>
+
+                <div class="icon-grid">
+                    {% if profile.orcid %}
+                    <a href={{profile.orcid}}"" class="iconz orcid"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17 3C9.28077 3 3 9.28077 3 17C3 24.7192 9.28077 31 17 31C24.7192 31 31 24.7192 31 17C31 9.28077 24.7192 3 17 3ZM17 5.15385C23.5552 5.15385 28.8462 10.4448 28.8462 17C28.8462 23.5552 23.5552 28.8462 17 28.8462C10.4448 28.8462 5.15385 23.5552 5.15385 17C5.15385 10.4448 10.4448 5.15385 17 5.15385ZM11.6154 8.38462C11.3298 8.38462 11.0558 8.49808 10.8539 8.70004C10.6519 8.902 10.5385 9.17592 10.5385 9.46154C10.5385 9.74716 10.6519 10.0211 10.8539 10.223C11.0558 10.425 11.3298 10.5385 11.6154 10.5385C11.901 10.5385 12.1749 10.425 12.3769 10.223C12.5788 10.0211 12.6923 9.74716 12.6923 9.46154C12.6923 9.17592 12.5788 8.902 12.3769 8.70004C12.1749 8.49808 11.901 8.38462 11.6154 8.38462ZM10.5385 11.6154V23.4615H12.6923V11.6154H10.5385ZM14.8462 11.6154V12.6923V23.4615H19.6923C22.9506 23.4615 25.6154 20.7968 25.6154 17.5385C25.6154 14.2801 22.9506 11.6154 19.6923 11.6154H14.8462ZM17 13.7692H19.6923C21.7863 13.7692 23.4615 15.4445 23.4615 17.5385C23.4615 19.6325 21.7863 21.3077 19.6923 21.3077H17V13.7692Z" fill="#89A3CB"/>
+                        </svg>
+                        </a>
+                    {% endif %}
+                    {% if profile.linkedin %}
+                    <a href="{{profile.linkedin}}" class="iconz linkedin"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M14 0C6.26795 0 0 6.26795 0 14C0 21.732 6.26795 27.9999 14 27.9999C21.732 27.9999 28 21.732 28 14C27.9999 6.26795 21.7319 0 14 0ZM10.2648 20.7683H7.19092V10.8376H10.2648V20.7683ZM8.71319 9.53713C7.7093 9.53713 6.89548 8.71667 6.89548 7.70475C6.89548 6.69272 7.70942 5.87231 8.71319 5.87231C9.71695 5.87231 10.5308 6.69272 10.5308 7.70475C10.5308 8.71673 9.71701 9.53713 8.71319 9.53713ZM21.7839 20.7683H18.725V15.5555C18.725 14.1258 18.1819 13.3277 17.0514 13.3277C15.821 13.3277 15.1783 14.1589 15.1783 15.5555V20.7683H12.2301V10.8376H15.1783V12.1751C15.1783 12.1751 16.0651 10.5347 18.1708 10.5347C20.2766 10.5347 21.784 11.8205 21.784 14.4803L21.7839 20.7683Z" fill="#89A3CB"/>
+                        </svg>
+                        </a>
+                    {% endif %}
+                    {% if profile.twitter %}
+                    <a href="{{profile.twitter}}" class="iconz twitter"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0)">
+                        <path d="M14.0009 27.9998C21.7328 27.9998 28.0007 21.7318 28.0007 13.9999C28.0007 6.26796 21.7328 0 14.0009 0C6.26893 0 0.000976562 6.26796 0.000976562 13.9999C0.000976562 21.7318 6.26893 27.9998 14.0009 27.9998Z" fill="#89A3CB"/>
+                        <path d="M22.5755 10.0613C21.9755 10.3273 21.3301 10.5073 20.6533 10.5876C21.3444 10.1736 21.8747 9.51851 22.125 8.73664C21.4784 9.12021 20.7619 9.39847 20 9.54846C19.3896 8.89835 18.5198 8.49207 17.5568 8.49207C15.709 8.49207 14.2104 9.99068 14.2104 11.8384C14.2104 12.1007 14.2401 12.356 14.2975 12.6011C11.5164 12.4616 9.0505 11.1294 7.3999 9.10424C7.11191 9.59837 6.9467 10.1736 6.9467 10.7868C6.9467 11.9475 7.53791 12.9722 8.43533 13.5721C7.88704 13.5549 7.3707 13.4044 6.91975 13.1531C6.9195 13.1673 6.9195 13.1816 6.9195 13.1955C6.9195 14.8169 8.07347 16.1693 9.60402 16.4765C9.32352 16.5534 9.02729 16.5941 8.72257 16.5941C8.50645 16.5941 8.29707 16.5734 8.09293 16.5344C8.51868 17.8636 9.75426 18.8311 11.2189 18.8583C10.0734 19.756 8.63074 20.2908 7.06249 20.2908C6.79297 20.2908 6.52594 20.2751 6.26465 20.2439C7.74479 21.1937 9.5042 21.7475 11.3939 21.7475C17.549 21.7475 20.9151 16.6485 20.9151 12.226C20.9151 12.081 20.9119 11.9365 20.9054 11.7933C21.5597 11.3216 22.127 10.7324 22.5755 10.0613Z" fill="white"/>
+                        </g>
+                        <defs>
+                        <clipPath id="clip0">
+                        <rect width="28" height="28" fill="white"/>
+                        </clipPath>
+                        </defs>
+                        </svg>
+                        </a>
+                    {% endif %}
+                    {% if profile.github %}
+                    <a href="{{profile.github}}" class="iconz github"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M14 0C6.26847 0 0 6.26847 0 14C0 21.7324 6.26847 28 14 28C21.7315 28 28 21.7324 28 14C27.9999 6.26847 21.7314 0 14 0ZM17.9217 24.6653C17.8411 23.5698 17.751 22.2127 17.7458 21.6632C17.7108 21.2414 17.6652 20.1687 16.6468 19.4836C20.6901 19.145 22.6142 16.9102 22.7525 13.9571C22.8681 12.2754 22.1995 10.7966 21.0122 9.60316C21.0726 8.32657 20.9737 6.81363 20.8915 6.14872C19.9797 5.88623 17.8535 7.00884 17.2593 7.48922C16.0063 7.00269 12.9395 6.83209 11.0757 7.48922C9.75444 6.55999 8.25035 5.98599 7.4305 6.14612C6.6736 7.82351 7.16013 9.40901 7.30795 9.59797C6.33316 10.4888 4.97343 11.5851 5.3427 13.882C5.93505 17.2498 8.30456 19.0664 12.1195 19.5108C11.3058 19.6771 11.1684 20.2843 11.1001 20.5477C8.53812 21.6047 7.80582 19.895 7.48201 19.4496C6.40669 18.1187 5.44151 18.5046 5.38201 18.5255C5.32425 18.5465 5.28052 18.6305 5.28667 18.6708C5.34088 18.9578 5.92631 19.2492 5.95514 19.2727C6.74876 19.8642 7.04277 20.9326 7.22385 21.2371C8.36223 23.1087 11.0083 22.3326 11.0336 22.3484C11.0354 22.512 11.0153 23.8893 10.9995 24.9612C6.17486 23.6433 2.62498 19.2421 2.62498 14C2.62498 7.71749 7.71749 2.62507 13.9999 2.62507C20.2823 2.62507 25.3749 7.71749 25.3749 14C25.3749 18.9026 22.2687 23.0666 17.9217 24.6653Z" fill="#89A3CB"/>
+                        </svg>
+                        </a>
+                    {% endif %}
+                    {% if profile.facebook %}
+                    <a href="{{profile.facebook}}" class="iconz facebook"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M14 0C21.7324 0 28 6.2685 28 14C28 21.7325 21.7324 28 14 28C6.26753 28 0 21.7324 0 14C0 6.2685 6.26763 0 14 0Z" fill="#89A3CB"/>
+                        <path d="M15.7042 9.6381H17.5085V6.97284H15.3875V6.98245C12.8176 7.07347 12.2909 8.51807 12.2445 10.0353H12.2392V11.3662H10.4893V13.9763H12.2392V20.9728H14.8765V13.9763H17.0369L17.4542 11.3662H14.8774V10.5621C14.8774 10.0494 15.2186 9.6381 15.7042 9.6381Z" fill="white"/>
+                        </svg>
+                        </a>
+                    {% endif %}
+                    {% if profile.osf %}
+                    <a href="{{profile.osf}}" class="iconz youtube">
+
+                    <svg width="29" height="30" viewBox="0 0 29 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="9.08794" cy="9.00688" r="2.7061" fill="#89A3CB"/>
+                        <circle cx="9.08794" cy="19.9928" r="2.7061" fill="#89A3CB"/>
+                        <circle cx="19.9122" cy="19.9928" r="2.7061" fill="#89A3CB"/>
+                        <circle cx="19.9122" cy="9.16838" r="2.7061" fill="#89A3CB"/>
+                        <circle cx="6.74485" cy="6.82591" r="3.51389" fill="#7089AF"/>
+                        <circle cx="3.51389" cy="14.4999" r="3.51389" fill="#7089AF"/>
+                        <circle cx="6.74485" cy="22.1739" r="3.51389" fill="#7089AF"/>
+                        <circle cx="14.4997" cy="25.7282" r="3.51389" fill="#7089AF"/>
+                        <circle cx="22.2546" cy="22.2547" r="3.51389" fill="#7089AF"/>
+                        <circle cx="25.4861" cy="14.4999" r="3.51389" fill="#7089AF"/>
+                        <circle cx="22.2546" cy="6.82591" r="3.51389" fill="#7089AF"/>
+                        <circle cx="14.4997" cy="3.51389" r="3.51389" fill="#7089AF"/>
+                        <circle cx="14.5" cy="6.98741" r="2.7061" fill="#89A3CB"/>
+                        <circle cx="6.74468" cy="14.4999" r="2.7061" fill="#89A3CB"/>
+                        <circle cx="14.5" cy="22.2547" r="2.7061" fill="#89A3CB"/>
+                        <circle cx="22.2544" cy="14.5806" r="2.7061" fill="#89A3CB"/>
+                        </svg>
+                        
+                        </a>
+                    {% endif %}
+                    {% if profile.youtube %}
+                    <a href="{{profile.youtube}}" class="iconz youtube"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0)">
+                        <path d="M14 28.0001C21.732 28.0001 28.0001 21.732 28.0001 14C28.0001 6.26803 21.732 0 14 0C6.26803 0 0 6.26803 0 14C0 21.732 6.26803 28.0001 14 28.0001Z" fill="#89A3CB"/>
+                        <path d="M21.3264 11.2984C21.3264 10.1248 20.3756 9.17352 19.2026 9.17352H9.23858C8.06584 9.17352 7.11523 10.125 7.11523 11.2984V16.9964C7.11523 18.17 8.06601 19.1212 9.23858 19.1212H19.2024C20.3756 19.1212 21.3262 18.1697 21.3262 16.9964V11.2984H21.3264ZM12.7992 16.5511V11.1994L16.8578 13.8754L12.7992 16.5511Z" fill="white"/>
+                        </g>
+                        <defs>
+                        <clipPath id="clip0">
+                        <rect width="28" height="28" fill="white"/>
+                        </clipPath>
+                        </defs>
+                        </svg>
+                        </a>
+                    {% endif %}
+                </div>
+                {% if profile.cv %}
+                <div class="cv-cont"><a href="{{profile.cv.url}}" class="cv-else">View/Download CV</a>
+                </div>
+                {% endif %}
+
+                {% if profile.resume %}
+                <div class="cv-cont"><a href="{{profile.resume.url}}" class="cv-else">View/Download Resume</a>
+                </div>
+                {% endif %}
+
+                {% if profile.website %}
+                <div class="cv-cont"><a href="{{profile.website}}" class="cv-else">Visit Personal Website</a>
+                </div>
+                {% endif %}
+
+            </div>
+            <div class="right-profile">
+                {% if profile.description %}
+                <div class="bio-title about-me just">About Me</div>
+                <div class="about-text profile-text">{{profile.description}}</div>
+                {% endif %}
+
+                {% if publications %}
+                <div class="bio-title my-publications">My Publications</div>
+                <ol class="pubs">
+                    {% for publication in publications %}
+                        <li class="about-text profile-text2">{{publication.contributors}} ({{publication.status_date}}) {{publication.title}} <span style="font-style:italic;">{{publication.journal_title}}</span> <span>{{publication.journal_info}}</span></li>
+                        {% if publication.pub_link %}
+                        <a href="{{publication.pub_link}}" class="profile-text2" style="display: block; cursor:pointer; text-decoration:underline;" class="font-for" >{{publication.pub_link}}</a>
+                        {% endif %}
+                    {% endfor %}
+                </ol> 
+                {% endif %}
+                {% if presentations %}
+                <div class="bio-title my-publications mg">My Presentations</div>
+                <ol class="pubs">
+                    {% for presentation in presentations %}
+                        <li class="about-text profile-text2">{{presentation.contributors}} ({{presentation.status_date}}) {{presentation.title}} {{presentation.conference_venue}}</li>
+                    {% endfor %}
+                </ol>
+                {% endif %}
+
+                {% if profile.skills_and_ongoing_projects %}
+                <div class="bio-title my-publications mg">Skills and Ongoing Projects</div>
+                <div class="about-text profile-text2">{{profile.skills_and_ongoing_projects|safe}}</div>
+                {% endif %}
+
+
+
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+
+</div>
+
+{% endblock %}

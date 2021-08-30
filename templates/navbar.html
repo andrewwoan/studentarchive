@@ -1,0 +1,29 @@
+{% load static %}
+<header class="header">
+    <div class="container container--narrow">
+        <a href="{% url 'home' %}" class="header__logo">
+            <!-- <img src="images/logo.svg" alt="WybleLab Logo" /> -->
+            Home
+        </a>
+        <nav class="header__nav">
+            <ul class="nav-list">
+                <!-- <li class="nav-item"><a href="{% url 'profiles' %}" class="nav-link">Home</a></li> -->
+                <li class="nav-item"><a href="{% url 'profiles' %}" class="nav-link">Graduates</a></li>
+                <li class="nav-item"><a href="{% url 'profiles_undergrad' %}" class="nav-link">Undergraduates</a></li>
+                <li class="nav-item"><a href="{% url 'profiles_alum' %}" class="nav-link">Alumni</a></li>
+                <li class="nav-item"><a href="{% url 'profiles_res' %}" class="nav-link">Research Staff</a></li>
+                <li class="nav-item"><a href="{% url 'profiles_post' %}" class="nav-link">Postdocs</a></li>
+                <li class="nav-item"><a href="{% url 'publications' %}" class="nav-link">Publications</a></li>
+                {%if request.user.is_authenticated %}
+                <li class="nav-item"><a href="{% url 'account' %}" class="nav-link">My Account</a></li>
+                <li class="nav-item"><a href="{% url 'logout' %}" class="nav-link">Sign Out</a></li>
+                {% else %}
+                <li class="nav-item"><a href="{% url 'login' %}" class="nav-link">Sign in</a></li>
+                {% endif %}
+            </ul>
+
+        </nav>
+
+    </div>
+    
+</header>

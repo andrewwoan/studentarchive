@@ -1,0 +1,51 @@
+{% extends "main.html"%}
+
+
+{% block content %}
+
+<div class="background-image6">
+    <div class="hero-titles">
+        <h1 class="hero-title">
+            Alumni
+        </h1>
+        <h2 class="hero-description">
+            Alumni at PSU's University Park Psychology department
+        </h2>
+    </div>
+</div>
+
+<div class="profile-section">
+    <div class="paper">
+        <div class="search">
+            <form id='searchForm' class="form" action="{% url 'profiles_alum' %}" method="get">
+                <div class="form__field">
+                    <input class="input input--text" id="formInput#search" type="text" name="search_query"
+                        placeholder="Search" value="{{search_query}}" />
+                </div>
+
+                <input class="searching-thing" type="submit" value="" />
+            </form>
+        </div>
+        <div class="grid">
+            {% for profile in profiles|dictsort:"name" %}
+            <div class="full-card">
+                <a href="{% url 'user-profile' profile.username %}" class="link-to-profile">
+                    <div class="formatting">
+                        <img src="{{ profile.profile_picture.url }}" alt="">
+                    </div>
+                    <p class="name">{{profile.name}}</p>
+                    {% if profile.area_of_interest %}
+                    <p class="title">{{profile.area_of_interest}}</p>
+                    {% endif %}
+                    <p class="location"></p>
+                </a>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+</div>
+
+</div>
+
+{% endblock %}

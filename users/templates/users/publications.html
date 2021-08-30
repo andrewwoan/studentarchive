@@ -1,0 +1,60 @@
+{% extends "main.html"%}
+
+
+{% block content %}
+
+<div class="background-image3">
+    <div class="hero-titles">
+        <h1 class="hero-title">
+            Publications
+        </h1>
+        <h2 class="hero-description">
+            Here is a partial list of publications authored in part by researchers in our psychology department        </h2>
+    </div>
+</div>
+
+<div class="profile-section">
+    <div class="paper">
+        <div class="search">
+            <form id='searchForm' class="form" action="{% url 'publications' %}" method="get">
+                <div class="form__field">
+                    <input class="input input--text" id="formInput#search" type="text" name="search_query"
+                        placeholder="Search" value="{{search_query}}" />
+                </div>
+
+                <input class="searching-thing" type="submit" value="" />
+            </form>
+        </div>
+        <div class="sorters">
+            <form class="margin55" method="POST" action="{% url 'publications' %}">
+                {% csrf_token %}
+            <button type="submit" class="sorting" >Sort By Contributors</button>
+            </form>
+            <form class="margin55" method="GET" action="{% url 'publications' %}">
+                {% csrf_token %}
+            <button type="submit" class="sorting" >Sort By Date</button>
+            </form>
+        </div>
+        <ol  class="publications">
+            {% for publication in publications %}
+            <li class="spacing">
+                <span class="font-for" >{{publication.contributors}}</span>
+                <span class="font-for" >({{publication.status_date}})</span>
+                <span class="font-for" >{{publication.title}}</span>
+                <span  class="font-for" style="font-style:italic;">{{publication.journal_title}}</span>
+                {% if publication.journal_info %}
+                <span class="font-for" >{{publication.journal_info}}</span>
+                {% endif %}
+                {% if publication.pub_link %}
+                <a href="{{publication.pub_link}}" style="color: black; display: block; cursor:pointer;text-decoration:underline;" class="font-for" >{{publication.pub_link}}</a>
+                {% endif %}
+            </li>
+            {% endfor %}
+        </ol>
+
+    </div>
+</div>
+
+</div>
+
+{% endblock %}

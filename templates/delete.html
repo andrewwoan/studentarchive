@@ -1,0 +1,36 @@
+{% extends "main.html"%}
+
+
+{% block content %}
+
+<div class="background-image5">
+    <div class="hero-titles">
+        <h1 class="hero-title">
+            Delete Items
+        </h1>
+
+    </div>
+</div>
+
+<div class="profile-section">
+    <div class="paper">
+        <div class="back">
+            <a href="{% url 'account' %}" class="back-container">
+                <svg width="14" height="14" viewBox="0 0 28 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M25.9916 51.9916C25.462 51.9894 24.9549 51.7772 24.5816 51.4016L0.581586 27.4016C0.209084 27.0269 0 26.52 0 25.9916C0 25.4632 0.209084 24.9563 0.581586 24.5816L24.5816 0.581585C24.9563 0.209083 25.4632 0 25.9916 0C26.52 0 27.0269 0.209083 27.4016 0.581585C27.7741 0.95631 27.9832 1.46321 27.9832 1.99159C27.9832 2.51996 27.7741 3.02686 27.4016 3.40159L4.82159 25.9916L27.4016 48.5816C27.6796 48.8613 27.8687 49.2169 27.9452 49.6037C28.0217 49.9906 27.9821 50.3914 27.8314 50.7558C27.6807 51.1202 27.4257 51.432 27.0983 51.6519C26.771 51.8717 26.3859 51.9899 25.9916 51.9916Z" fill="#BBBBBB"/>
+                    </svg>                    
+                <div class="back-name">Back</div>
+            </a>
+        </div>
+    <h1 class="m1b">Delete</h1>
+    <form style="margin-top: 36px" method="POST" action="">
+        {% csrf_token %}
+        <p>Are you sure you want to delete "{{object}}"</p>
+        <input class="confirms" type="Submit" value="Confirm">
+    </form>
+    </div>
+</div>
+
+</div>
+
+{% endblock %}
